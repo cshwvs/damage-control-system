@@ -1,18 +1,19 @@
 <template>
   <div>
-    <PageHeader title="危险等级与评估规则" desc="划分四级安全等级，明确判定指标及阈值" />
+    <PageHeader title="危险等级与评估规则" desc="划分两级安全等级，明确判定指标及阈值" />
+
     <el-card shadow="never">
       <el-table :data="riskLevels" border stripe>
-        <el-table-column prop="level" label="等级" width="100" />
+        <el-table-column prop="level" label="等级" width="80" />
         <el-table-column prop="label" label="名称" width="120" />
         <el-table-column prop="color" label="标识颜色" width="100">
           <template #default="{ row }">
             <div :style="{ width: '30px', height: '20px', backgroundColor: row.color, borderRadius: '2px' }"></div>
           </template>
         </el-table-column>
-        <el-table-column prop="indicator" label="判定指标" min-width="150" />
-        <el-table-column prop="threshold" label="阈值" min-width="150" />
-        <el-table-column prop="description" label="特征描述" min-width="200" />
+        <el-table-column prop="indicator" label="判定指标" min-width="180" />
+        <el-table-column prop="threshold" label="阈值" min-width="200" />
+        <el-table-column prop="description" label="特征描述" min-width="220" />
         <el-table-column label="操作" width="120">
           <template #default="{ row }">
             <el-button size="small" @click="handleEdit(row)">编辑</el-button>
@@ -49,11 +50,24 @@ import { ref, reactive } from 'vue'
 import PageHeader from '@/components/PageHeader.vue'
 import { ElMessage } from 'element-plus'
 
+// 两级危险等级定义
 const riskLevels = ref([
-  { level: 'I', label: '低危险', color: '#67C23A', indicator: '浮态可控、稳性达标、动力可靠', threshold: 'F>1.2, GM>0.15m, 冗余≥30%', description: '正常运行状态，无显著风险' },
-  { level: 'II', label: '中危险', color: '#E6A23C', indicator: '浮态微变、稳性偏低、动力部分损失', threshold: '1.0<F≤1.2, 0.1<GM≤0.15m, 冗余15%~30%', description: '需关注，采取预防措施' },
-  { level: 'III', label: '高危险', color: '#F56C6C', indicator: '浮态失衡、稳性接近下限、动力严重不足', threshold: '0.8<F≤1.0, 0.05<GM≤0.1m, 冗余5%~15%', description: '立即处置，防止恶化' },
-  { level: 'IV', label: '极限危险', color: '#909399', indicator: '浮态失控、稳性丧失、动力失效', threshold: 'F≤0.8, GM≤0.05m, 冗余<5%', description: '启动应急程序，准备弃船/上浮' }
+  {
+    level: 'I',
+    label: '低危险',
+    color: '#ffc579',
+    indicator: '浮态可控、稳性达标、动力可靠',
+    threshold: 'F>1.2, GM>0.15m, 冗余≥30%',
+    description: '正常运行状态，无显著风险'
+  },
+  {
+    level: 'II',
+    label: '高危险',
+    color: '#c70000',
+    indicator: '浮态失衡、稳性丧失、动力严重不足',
+    threshold: 'F≤1.0, GM≤0.1m, 冗余<15%',
+    description: '立即处置，防止恶化，必要时启动应急程序'
+  }
 ])
 
 const dialogVisible = ref(false)

@@ -125,12 +125,6 @@ export const menuRoutes = [
         meta: { title: '安全知识图谱' }
       },
       {
-        path: 'risk-identification',
-        name: 'RiskIdentification',
-        component: () => import('@/views/intelligent/risk-identification.vue'),
-        meta: { title: '组合式风险识别' }
-      },
-      {
         path: 'reasoning',
         name: 'Reasoning',
         component: () => import('@/views/intelligent/reasoning.vue'),
