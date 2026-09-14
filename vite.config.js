@@ -13,6 +13,10 @@ export default defineConfig(({ mode }) => {
     },
     server: {
       port: 3000,
+      // 忽略编辑器“临时目录 + 改名”方式落盘时产生的中间文件，避免 watcher 触发 EBUSY 崩溃
+      watch: {
+        ignored: ['**/.*.tmpdir/**', '**/*.tmp']
+      },
       proxy: {
         '/api/om': {
           target: env.VITE_PROXY_TARGET || 'http://192.168.10.3:8585',

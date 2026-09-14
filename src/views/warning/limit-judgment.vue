@@ -204,7 +204,7 @@ const floatCriteria = ref([
 
 // 稳性达标判定项
 const stabilityCriteria = ref([
-  { name: '初稳性高 GM', current: '0.12 m', range: '≥0.15 m 达标 / ≤0.1 m 极限', pass: false, basis: '初稳性高，潜艇核心稳性指标' },
+  { name: '初稳性高 GM', current: '0.12 m', range: '≥0.15 m 达标 / ≤0.1 m 极限', pass: false, basis: '初稳性高，xx核心稳性指标' },
   { name: '最大稳性力臂', current: '0.28 m', range: '≥0.25 m 达标 / <0.2 m 极限', pass: true, basis: '稳性曲线最大力臂' },
   { name: '稳性消失角', current: '55°', range: '≥50° 达标 / <40° 极限', pass: true, basis: '稳性曲线与横轴交点' },
   { name: '稳性曲线下面积', current: '0.15 m·rad', range: '≥0.12 m·rad 达标 / <0.08 m·rad 极限', pass: true, basis: '动稳性积分面积' }

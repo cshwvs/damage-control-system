@@ -3,12 +3,6 @@ import Layout from '@/layout/index.vue'
 
 export const menuRoutes = [
   {
-    path: '/dashboard',
-    name: 'Dashboard',
-    component: () => import('@/views/dashboard/index.vue'),
-    meta: { title: '首页总览', icon: 'Odometer' }
-  },
-  {
     path: '/basic',
     name: 'Basic',
     meta: { title: '通用基础与安全计算', icon: 'Setting' },
