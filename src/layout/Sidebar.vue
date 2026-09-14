@@ -3,16 +3,19 @@
     <div class="logo">
       <span>xx辅助决策系统</span>
     </div>
-    <el-menu
-      :default-active="activeMenu"
-      router
-      class="sidebar-menu"
-      background-color="#ffffff"
-      text-color="#333333"
-      active-text-color="#409EFF"
-    >
-      <SidebarItem v-for="route in routes" :key="route.path" :item="route" :base-path="''" />
-    </el-menu>
+    <div class="menu-scroll-wrapper">
+      <el-menu
+        :default-active="activeMenu"
+        router
+        :collapse-transition="false"
+        class="sidebar-menu"
+        background-color="#ffffff"
+        text-color="#333333"
+        active-text-color="#409EFF"
+      >
+        <SidebarItem v-for="route in routes" :key="route.path" :item="route" :base-path="''" />
+      </el-menu>
+    </div>
   </div>
 </template>
 
@@ -52,30 +55,34 @@ const activeMenu = computed(() => route.path)
   letter-spacing: 1px;
 }
 
-.sidebar-menu {
+/* 新增：滚动容器，独立于菜单 */
+.menu-scroll-wrapper {
   flex: 1;
-  overflow-y: auto;
+  overflow-y: scroll;
   overflow-x: hidden;
-  border-right: none;
-  padding: 8px 0;
-  /* 关键：滚动条悬浮于内容上方，不占用布局宽度 */
   scrollbar-width: thin;
   scrollbar-color: #b1b1b1 transparent;
-  /* 预留右侧空间，防止滚动条遮挡内容 */
-  padding-right: 0px;
+  box-sizing: border-box;
 }
 
-/* WebKit 滚动条 */
-.sidebar-menu::-webkit-scrollbar {
+.menu-scroll-wrapper::-webkit-scrollbar {
   width: 6px;
   background: transparent;
 }
-.sidebar-menu::-webkit-scrollbar-thumb {
+.menu-scroll-wrapper::-webkit-scrollbar-thumb {
   background-color: #b1b1b1;
   border-radius: 3px;
 }
-.sidebar-menu::-webkit-scrollbar-track {
+.menu-scroll-wrapper::-webkit-scrollbar-track {
   background: transparent;
+}
+
+/* 菜单本身不再滚动，宽度完全固定 */
+.sidebar-menu {
+  border-right: none;
+  padding: 8px 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* 一级菜单和子菜单标题 */
@@ -83,14 +90,13 @@ const activeMenu = computed(() => route.path)
 .sidebar-menu :deep(.el-sub-menu__title) {
   font-size: 16px !important;
   border-radius: 4px;
-  margin: 4px 8px 4px 12px;      /* 左右边距8px，右侧实际到边缘约14px(8+6滚动条预留) */
-  width: auto;                   /* 自动宽度，由 flex 父容器控制 */
+  margin: 4px 8px 4px 12px;
+  width: auto;
   padding: 0 10px !important;
   height: 40px;
   line-height: 48px;
   display: flex;
   align-items: center;
-  /* 确保右侧固定间距，不受滚动条影响 */
   box-sizing: border-box;
 }
 
@@ -113,7 +119,7 @@ const activeMenu = computed(() => route.path)
   background-color: #F0F0F0;
 }
 
-/* 展开箭头：用 flex 推到最右，与右侧边距保持10px */
+/* 展开箭头：固定位置，不受影响 */
 .sidebar-menu :deep(.el-sub-menu__title) {
   position: relative;
 }
@@ -124,8 +130,29 @@ const activeMenu = computed(() => route.path)
   transform: translateY(-50%);
   transition: transform 0.3s;
 }
-
 .sidebar-menu :deep(.el-sub-menu.is-opened > .el-sub-menu__title .el-sub-menu__icon-arrow) {
   transform: translateY(-50%) rotate(-90deg);
+}
+
+/* 彻底禁用子菜单展开动画和高度过渡 */
+.sidebar-menu :deep(.el-menu--inline) {
+  transition: none !important;
+  animation: none !important;
+}
+
+.sidebar-menu :deep(.el-menu--inline .el-menu-item) {
+  transition: none !important;
+  animation: none !important;
+  height: 40px;          /* 与一级菜单项保持一致 */
+  line-height: 40px;     /* 固定行高，防止文字跳动 */
+  display: flex;
+  align-items: center;
+}
+
+/* 确保所有菜单项行高一致，避免基线变化 */
+.sidebar-menu :deep(.el-menu-item),
+.sidebar-menu :deep(.el-sub-menu__title) {
+  line-height: 40px;
+  height: 40px;
 }
 </style>
