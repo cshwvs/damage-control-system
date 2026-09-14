@@ -36,7 +36,7 @@ const textColors = ref(['#ffffff', '#ffffff'])
 const breadcrumbs = computed(() => route.matched.filter(item => item.meta && item.meta.title))
 
 function goHome() {
-  router.push('/dashboard')
+  router.push('/basic/parameters')
 }
 
 function handleClick(item) {

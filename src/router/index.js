@@ -6,7 +6,7 @@ const routes = [
   {
     path: '/',
     component: Layout,
-    redirect: '/dashboard',
+    redirect: '/basic/parameters',
     children: menuRoutes
   }
 ]
