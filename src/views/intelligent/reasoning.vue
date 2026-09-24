@@ -1,6 +1,6 @@
 <template>
   <div>
-    <PageHeader title="智能化推理与辅助决策" desc="依托知识图谱与动态评估规则智能推理，自动生成多套备选方案并推荐最优，支持规则自定义配置" />
+    <PageHeader title="本体推理与辅助决策" desc="依托知识图谱与动态评估规则智能推理，自动生成多套备选方案并推荐最优，支持规则自定义配置" />
 
     <!-- 当前态势 -->
     <el-alert type="error" :closable="false" show-icon class="situation">

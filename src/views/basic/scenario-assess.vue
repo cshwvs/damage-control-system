@@ -1,6 +1,6 @@
 <template>
   <div>
-    <PageHeader title="作业场景风险评估" desc="覆盖三大核心作业场景自动评估" />
+    <PageHeader title="作业场景安全评估" desc="构建物资装载等作业场景、抗风浪计算场景、舱室破损损害场景三大核心场景，作为防沉抗沉安全评估的输入条件" />
     <el-card shadow="never">
       <el-form :inline="true">
         <el-form-item label="评估场景">
@@ -61,7 +61,7 @@ function generateReport() {
     report.value = {
       scenarioName: '抗风浪风险评估',
       time: now,
-      riskLevel: { label: '中危险', type: 'warning' },
+      riskLevel: { label: '低危险', type: 'warning' },
       score: '70',
       mainRisk: '风浪联合作用',
       suggestion: '降低航速，调整航向，必要时寻找避风锚地。'

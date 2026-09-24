@@ -1,6 +1,6 @@
 <template>
   <div>
-    <PageHeader title="动态处置决策树" desc="整合三轴数据与风险等级、稳性计算、姿态预警、极限工况判定，数字化推演处置路径，自动输出最优方案" />
+    <PageHeader title="动态处置决策" desc="综合运用三轴，整合风险等级、稳性计算、姿态预警、极限险情判定结果，将静态规则转化为数字化、可视化动态决策树；处置分步演示、结果实时验算，支持在线推演、模拟引导与实时调用，自动输出最优方案并完整记录处置操作、操作时长、险情变化与系统建议" />
 
     <el-row :gutter="20">
       <!-- 动态决策树 -->
@@ -8,7 +8,7 @@
         <el-card shadow="never">
           <template #header>
             <div class="card-header">
-              <span>动态处置决策树</span>
+              <span>动态处置决策</span>
               <div class="header-right">
                 <span class="play-status">{{ playing ? '自动推演中' : '已暂停' }}</span>
                 <el-button :type="playing ? 'warning' : 'primary'" size="small" round @click="togglePlay">
@@ -125,7 +125,7 @@ const nodes = [
   { id: 'risk', label: '风险等级判定', x: 120, y: 95, w: 110, step: 1 },
   { id: 'stab', label: '稳性计算', x: 270, y: 95, w: 90, step: 2 },
   { id: 'att', label: '姿态预警', x: 420, y: 95, w: 90, step: 3 },
-  { id: 'lim', label: '极限工况判定', x: 270, y: 160, w: 110, step: 4 },
+  { id: 'lim', label: '极限险情判定', x: 270, y: 160, w: 110, step: 4 },
   { id: 'disp', label: '处置方案生成', x: 270, y: 225, w: 110, step: 5 },
   { id: 'exec', label: '执行与验算', x: 270, y: 290, w: 100, step: 6 }
 ]
@@ -147,7 +147,7 @@ const simSteps = [
   { name: '风险等级判定', desc: 'II舱进水速率 22 t/h，破口面积 0.3m²', ok: true, verify: '判定为 II级（高危险）' },
   { name: '稳性计算', desc: 'GM = 0.12m，稳性裕度低于安全阈值', ok: false, verify: 'GM < 0.15m，稳性不足' },
   { name: '姿态预警', desc: '横倾角 9.2°，吃水差 0.3m', ok: false, verify: '横倾超8°，姿态预警触发' },
-  { name: '极限工况判定', desc: '动力冗余 28%，稳性持续下降', ok: false, verify: '逼近极限工况阈值' },
+  { name: '极限险情判定', desc: '动力冗余 28%，稳性持续下降', ok: false, verify: '逼近极限工况阈值' },
   { name: '处置方案生成', desc: '匹配三轴对策集，生成备选方案', ok: true, verify: '方案集已生成待比选' }
 ]
 

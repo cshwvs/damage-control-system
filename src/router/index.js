@@ -6,7 +6,7 @@ const routes = [
   {
     path: '/',
     component: Layout,
-    redirect: '/basic/parameters',
+    redirect: '/platform/visual-warning',
     children: menuRoutes
   }
 ]

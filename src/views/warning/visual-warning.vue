@@ -1,6 +1,6 @@
 <template>
   <div>
-    <PageHeader title="可视化预警展示" desc="以深海三维视窗映射艇体姿态与预警状态，并实时列出多维度预警信息与处置薄弱环节" />
+    <PageHeader title="三维物理环境搭建" desc="以目标对象构建以生命力为主旨的三维模型结构，通过三维前端可视化展示载体姿态、舱室布局与险情要素，为模型运算、数据调用、安全评估与决策建议提供物质基础" />
 
     <!-- 深海三维视窗：xxx模型，可 360° 查看、缩放、移动 -->
     <el-card shadow="never">
@@ -81,9 +81,9 @@ import SubmarineScene from '@/components/SubmarineScene.vue'
 const activeWarnings = ref([
   { time: '08:32:05', dim: '姿态异常', source: '陀螺仪', desc: '横倾角 9.2° 超阈值 8°', levelType: 'danger', levelText: '高危险', advice: '立即压载水横向转移', handled: false },
   { time: '08:31:42', dim: '设备故障', source: '稳性计算', desc: 'GM 0.12m 低于安全下限 0.15m', levelType: 'danger', levelText: '高危险', advice: '启动高压气抗沉', handled: false },
-  { time: '08:30:15', dim: '设备故障', source: '压力传感器', desc: '高压气压力 18 MPa 低于预警值 20 MPa', levelType: 'warning', levelText: '中危险', advice: '检查管路，启动备用气源', handled: false },
-  { time: '08:28:50', dim: '姿态异常', source: '深度计', desc: '深度偏离设定值 12 m', levelType: 'warning', levelText: '中危险', advice: '调整潜浮系统', handled: true },
-  { time: '08:25:30', dim: '人员效能', source: '协同记录', desc: '协同作业耗时 6 min 超阈值 5 min', levelType: 'warning', levelText: '中危险', advice: '加强岗位协同', handled: true }
+  { time: '08:30:15', dim: '设备故障', source: '压力传感器', desc: '高压气压力 18 MPa 低于预警值 20 MPa', levelType: 'warning', levelText: '低危险', advice: '检查管路，启动备用气源', handled: false },
+  { time: '08:28:50', dim: '姿态异常', source: '深度计', desc: '深度偏离设定值 12 m', levelType: 'warning', levelText: '低危险', advice: '调整潜浮系统', handled: true },
+  { time: '08:25:30', dim: '人员效能', source: '协同记录', desc: '协同作业耗时 6 min 超阈值 5 min', levelType: 'warning', levelText: '低危险', advice: '加强岗位协同', handled: true }
 ])
 
 // 处置薄弱环节

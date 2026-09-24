@@ -1,6 +1,6 @@
 <template>
   <div>
-    <PageHeader title="公式图表汇编" desc="汇总计算公式、评估指标与数据关联关系" />
+    <PageHeader title="电子图表手册" desc="将图形数据电子化，汇总计算公式、评估指标与数据关联关系，形成生命力电子图表手册，支持在线查阅、检索、作图与导出" />
     <el-row :gutter="20">
       <el-col :span="8">
         <el-card shadow="never">

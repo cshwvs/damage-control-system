@@ -1,6 +1,6 @@
 <template>
   <div>
-    <PageHeader title="多维度预警要素" desc="联动载体参数、历史案例与模型运算结果，覆盖设备故障、姿态异常、人员处置效能三大维度" />
+    <PageHeader title="多维度预警要素" desc="结合三维前端界面，以数字标注、图形分区、颜色标识等方式展示险情类型、等级与影响范围，预警信息实时推送至显示终端" />
 
     <!-- 总体预警态势 -->
     <el-card shadow="never" class="overview-card">

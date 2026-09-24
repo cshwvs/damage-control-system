@@ -1,6 +1,6 @@
 <template>
   <div>
-    <PageHeader title="安全计算模型引擎" desc="集成标准化计算模型，支持独立调用与组合运算" />
+    <PageHeader title="安全计算模型引擎" desc="集成物资装载等作业安全计算模块、抗风浪计算安全模块、破损抗沉计算安全模块三类标准化模型，支持独立调用与组合运算，计算结果实时展示、历史回溯" />
     <el-card shadow="never">
       <el-form :inline="true">
         <el-form-item label="计算场景">
@@ -95,7 +95,7 @@ function calculate() {
       riskLevel = { label: '低危险', type: 'success' }
       conclusion = '物资装载合理，重心变化在安全范围内。'
     } else if (ratio < 0.95) {
-      riskLevel = { label: '中危险', type: 'warning' }
+      riskLevel = { label: '低危险', type: 'warning' }
       conclusion = '接近满载，需注意重心高度。'
     } else {
       riskLevel = { label: '高危险', type: 'danger' }
@@ -109,7 +109,7 @@ function calculate() {
       riskLevel = { label: '低危险', type: 'success' }
       conclusion = '抗风能力满足要求。'
     } else if (windForce < 10000) {
-      riskLevel = { label: '中危险', type: 'warning' }
+      riskLevel = { label: '低危险', type: 'warning' }
       conclusion = '风速较高，建议降低航速或调整航向。'
     } else {
       riskLevel = { label: '高危险', type: 'danger' }
@@ -120,7 +120,7 @@ function calculate() {
     indicator = '进水量估算'
     value = inflow.toFixed(2) + ' m³/s'
     if (inflow < 0.5) {
-      riskLevel = { label: '中危险', type: 'warning' }
+      riskLevel = { label: '低危险', type: 'warning' }
       conclusion = '破损较小，及时堵漏可控制。'
     } else {
       riskLevel = { label: '极限危险', type: 'danger' }

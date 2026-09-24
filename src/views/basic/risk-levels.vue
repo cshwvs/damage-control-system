@@ -1,6 +1,6 @@
 <template>
   <div>
-    <PageHeader title="危险等级与评估规则" desc="划分两级安全等级，明确判定指标及阈值" />
+    <PageHeader title="通用危险等级与评估" desc="结合作业工况与损害场景划分低级危险、高级危险两级安全等级；联动设备故障（高压气系统、姿态平衡系统、操纵系统、潜浮系统）、姿态异常（横倾、纵倾、深度、稳性）、人员处置效能多维度评估逻辑，自动判定风险等级并明确典型场景判定阈值" />
 
     <el-card shadow="never">
       <el-table :data="riskLevels" border stripe>

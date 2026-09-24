@@ -1,12 +1,12 @@
 <template>
   <div>
-    <PageHeader title="极限工况判定" desc="明确典型评估维度下的危险等级判定阈值，界定浮态可控、稳性达标、其他因素可靠三大判定准则" />
+    <PageHeader title="极限险情判定" desc="明确典型评估维度下的危险等级判定阈值：浮态可控（上浮、下潜姿态是否可控）、稳性是否安全、其他因素可靠判定（高压气资源等），为抗沉决策提供极限工况边界" />
 
     <!-- 综合判定结果 -->
     <el-card shadow="never" class="verdict-card">
       <template #header>
         <div class="card-header">
-          <span>综合极限工况判定</span>
+          <span>综合极限险情判定</span>
           <div class="header-right">
             <span class="verdict-time">判定时间：{{ verdict.time }}</span>
             <el-button type="primary" size="small" @click="recalc">重新判定</el-button>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <PageHeader title="险情分级闭环处置" desc="结合三维前端界面，以数字标注、图形分区、颜色标识展示险情类型、等级与影响范围，预警实时推送，闭环管控" />
+    <PageHeader title="破损进水险情分级推演" desc="结合三维前端界面，以数字标注、图形分区、颜色标识展示险情类型、等级与影响范围，预警实时推送，闭环管控" />
 
     <!-- 顶部播放控制 -->
     <div class="play-control-bar">
@@ -12,12 +12,12 @@
     </div>
 
     <el-row :gutter="20" style="margin-top: 12px">
-      <!-- 可视化预警展示 -->
+      <!-- 多维度预警要素 -->
       <el-col :span="15">
         <el-card shadow="never">
           <template #header>
             <div class="card-header">
-              <span>可视化预警展示</span>
+              <span>多维度预警要素</span>
               <el-tag size="small" type="danger" effect="dark">II级 · 高危险</el-tag>
             </div>
           </template>
@@ -43,7 +43,7 @@
           </svg>
           <div class="legend">
             <span class="legend-item"><i class="dot danger"></i>高危险</span>
-            <span class="legend-item"><i class="dot warning"></i>中危险</span>
+            <span class="legend-item"><i class="dot warning"></i>低危险</span>
             <span class="legend-item"><i class="dot safe"></i>正常</span>
           </div>
         </el-card>
@@ -75,7 +75,7 @@
     <el-card shadow="never" style="margin-top: 20px">
       <template #header>
         <div class="card-header">
-          <span>险情分级闭环处置流程</span>
+          <span>破损进水险情分级推演流程</span>
           <span class="step-counter">步骤 {{ activeStepIndex + 1 }} / {{ loopSteps.length }}</span>
         </div>
       </template>

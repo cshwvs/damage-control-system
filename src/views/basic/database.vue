@@ -1,6 +1,6 @@
 <template>
   <div>
-    <PageHeader title="专属数据库" desc="展示业务数据库表结构、字段字典及数据比对功能" />
+    <PageHeader title="专属数据库调用" desc="配套业务专用数据库，支持关系建模与维度建模，兼容主流数据库类型；载体参数、水域环境数据、风险案例、计算阈值、操作记录分类存储、快速调取与增量更新；具备数据清理、数据比对能力，对新增/修改/删除数据分类展示并提供错误数据引导修正" />
     <el-card shadow="never">
       <el-tabs v-model="activeTab">
         <el-tab-pane label="表结构" name="tables">
